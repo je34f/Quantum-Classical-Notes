@@ -13,12 +13,14 @@
 	- |.> is called **ket-notation**. It is used to represent a column vector in quantum mechanics. For a given column vector |v>, its conjugate transpose (swapping the rows and columns, changing the sign of its imaginary part; denoted as **A^H**) is a row vector represented as <v| (bra-notation).
 		- In Qiskit, h-gate is applied as: **qc.h(q[0])**
 	- <img width="794" height="618" alt="image" src="https://github.com/user-attachments/assets/1f6a4ba6-ad95-40a8-82c7-9fe8526bf039" />
+	
 		- Note that when h-gate is applied twice on the qubit (once at each quantum coin-flipping stage), the only outcome must be 0 as the qubit will be returned to its original state **(H² = I)**.
 - **One Qubit**:
 	- A qubit has two states: 0 and 1.
 	- They are denoted by ket-notation: |0> and |1>.
 	- **NOT Operator**:
 		- Flips the value of a qubit.
+    
 		- <img width="254" height="134" alt="image" src="https://github.com/user-attachments/assets/ecca8841-83c8-4746-a94e-b9f4342bbc42" />
 		- X|0> = X (1 0) = (0 1) = |1>
 	- **Hadamard operator**:
@@ -39,6 +41,7 @@
 			- In the above examples, the amplitudes of states |0> and |1> are $\frac{1}{\sqrt2}$ and $\frac{-1}{\sqrt2}$ respectively.
 				- Since the probability of observing one state is the square of its value, the probability of observing them after a measurement is 1/2 (Note that after observing state 0, the new state is |0>, and after observing state 1, the new state will be |1>.)
 				- <img width="1180" height="244" alt="image" src="https://github.com/user-attachments/assets/ab642d9c-91db-4f98-912d-21674bcf0bc6" />
+				
 					- For example, probability of observing state |0> and |1> if system is in $\begin{pmatrix} \frac{-3}{5} \\ \frac{-4}{5} \end{pmatrix}$ is 9/25 and 16/25 respectively, which is the exact same for if system is in $\begin{pmatrix} \frac{3}{5} \\ \frac{-4}{5} \end{pmatrix}$ . This shows that the sign does not matter, only magnitude. Note that 9/25 + 16/25 = 1.
 		- States |+> and | - >:
 			- The quantum states obtained after applying H to |0> and |1> are known as **ket-plus** and **ket-minus** respectively.
@@ -79,6 +82,7 @@
 			  show()
 			  ```
 			- <img width="906" height="830" alt="image" src="https://github.com/user-attachments/assets/d87b21db-245b-4194-ba8f-fc1308848ef7" />
+			
 	- **Unit Circle**:
 		- All (real-valued) quantum states of a qubit form the unit circle.
 		- The length of each quantum state is 1.
@@ -88,6 +92,7 @@
 		- Suppose we have a single qubit. Each possible (real-valued) quantum state of this qubit is a point on a 2-D space.
 		- It can also be represented as a vector from origin to that point.
 		- <img width="762" height="830" alt="image" src="https://github.com/user-attachments/assets/59918c51-3131-42f5-9103-47c727fd448b" />
+		
 			- draw_qubit() -> draws a figure, the origin, the axes, the unit circle and the base quantum states.
 			- draw_quantum_state(x,y,name) -> draws an arrow from (0,0) to (x,y) and associates it with name.
 		- We can also draw the vector's angle with the axes and its projection on both axes:
@@ -115,6 +120,7 @@
 			  text(0.21,0.09,'a')
 			  ```
 			- <img width="774" height="674" alt="image" src="https://github.com/user-attachments/assets/e017d23d-d18d-492a-b2ac-3a5583e419a7" />
+			
 			- What does this show?
 				- Angle of quantum state with state |0> is a
 				- Amplitude of state |0> is cos(a) = 3/5
@@ -129,10 +135,12 @@
 - **Superposition**:
 	- Suppose A starts in $\begin{pmatrix} 1 \ & 0\end{pmatrix}$ and **secretly** applies the probabilistic operator $\begin{pmatrix} 0.3  & 0.6 \ & 0.7  & 0.4 \end{pmatrix}$ . Since she applied her operator secretly, our information about her state is probabilistic, which is calculated as:
 		- <img width="442" height="162" alt="image" src="https://github.com/user-attachments/assets/f4d2d97e-285a-4974-aae5-cf67e0bff018" />
+		
 		- A is **either in state 0 or in state 1.**
 		- However, from OUR POV, A is in state 0 with probability 0.3 and in state 1 with probability 0.7 -> A is in a **probability distribution** of states 0 and 1, **being in both states at the same time** but with different weights.
 		- **On the other hand, if we observe A's state, then our information about A becomes deterministic: either (1 0) or (0 1). Hence, we can say that after observing A's state, the probabilistic state (0.3 0.7) collapses to either (1 0) or (0 1).**
 	- <img width="844" height="592" alt="image" src="https://github.com/user-attachments/assets/d585dbb5-1ac0-47d3-bc07-a5e758ed7747" />
+	
 		- The photon is initially in state |v0> = (1 0)
 		- Step 1: Hadamard is applied onto |v0> -> |v1> = ( 1/sqrt2 1/sqrt2)
 			- The photon is in a **superposition of state |0> and state |1>**, being in both states with the amplitudes 1/sqrt2 and 1/sqrt2 respectively.
@@ -175,6 +183,7 @@
 			- If it is observed in state |1>, then the new state becomes $\begin{pmatrix} {0} \ & {1} \end{pmatrix}$ .
 	- **The second experiment of the quantum coin-flipping**:
 		- <img width="838" height="602" alt="image" src="https://github.com/user-attachments/assets/b82bfa6b-0bc6-4bc4-8480-a1f80bbc9f04" />
+		
 		- In this experiment, we make a measurement after the first quantum coin-flipping. If the measurement outcome is in state |0>, then we apply a second Hadamard.
 		- The first Hadamard: 
 			- We start in state |0> = $\begin{pmatrix} {1} \ & {0} \end{pmatrix}$
@@ -200,8 +209,10 @@
 			- quantum_circuit.ry(2 * angle_of_rotation,qubit)
 			- Why do we multiple angle of rotation by 2 ? This is because ry-gate is **defined on Bloch sphere**. The states |0> and |1> are placed on the North and South poles of the Bloch Sphere (see below), so the angle between them is $\pi$ . On the other hand, the angle between the states |0> and |1> on the unit circle is $\frac{\pi}{2}$ . Thus, when using the ry-gate, we provide twice of $\theta$ for a rotation with angle $\theta$ on the unit circle.
 			- <img width="524" height="608" alt="image" src="https://github.com/user-attachments/assets/c039f68c-feb1-47e7-8691-1a2bff61bb82" />
+			
 - **Rotations**:
 	- <img width="1220" height="828" alt="image" src="https://github.com/user-attachments/assets/65240726-41a6-4f20-bf7b-7b1523cd654d" />
+	
 	- Any 2D rotation by angle $\theta$ has the fixed form R( $\theta$ ) = $\begin{pmatrix} {cos\theta}  & {-sin\theta} \ & {sin\theta}  & {cos\theta} \end{pmatrix}$ , and the matrix is completely determined by the single unknown $\theta$
 	- As such, since we start in state |0> and end in state +>, the applied rotation operator to |0> will be $\begin{pmatrix} {cos\theta} \ & {sin\theta} \end{pmatrix}$ , and $\theta$ = $\frac{\pi}{4}$ to get |+>.
 	- Thus, if we apply the same operator again, it is the same as rotating by $\frac {\pi}{4}$ + $\frac {\pi}{4}$ = $\frac {\pi}{2}$ radians total, which will yield B: |1> as the solution.
@@ -215,14 +226,17 @@
 	- Hadamard Operator:
 		- **It is a reflection operator** and its line of reflection is the line obtained by rotating x-axis with $\frac{\pi}{8}$ radians in counter-clockwise direction.
 		- <img width="658" height="622" alt="image" src="https://github.com/user-attachments/assets/e5a64b4d-8418-48f5-8a9e-4a4fbd996004" />
+		
 	- Reflection Operators:
 		- <img width="1248" height="972" alt="image" src="https://github.com/user-attachments/assets/01c66d98-a867-4904-918f-c0b7890373f9" />
 	
 - **Quantum Tomography**:
 	- Similar to learn the bias of a coin by collecting statistics from tossing the coin many times. But, only making measurements may not be enough to make a good guess.
 	- <img width="1234" height="756" alt="image" src="https://github.com/user-attachments/assets/7a4bdb8e-5e39-4b7a-b314-49e304a87ad9" />
+	
 - **Two Qubits**:
 	- <img width="1200" height="470" alt="image" src="https://github.com/user-attachments/assets/3efd29c8-bd1f-4df8-bd08-83b72e61751d" />
+	
 	- Generalization: Suppose that we have k > 1 qubits/bits. Then, any deterministic (basis) state can be represented by k bits: |b1b2...bk>, where any bj $\in$ {0,1} for 1 $\le$ j $\le$ k.
 		- The size of the vector representing the states of k qubits = $2^k$
 		- If the decimal value of | $b_1$ $$ $b_2$ ... $b_k$ > is b, then the **entry that has the value of 1 will be the entry with index b**.
@@ -235,12 +249,14 @@
 	- **Applying Hadamards to both qubits**:
 		- Applying a h-gate to the first and second qubits is the same as applying the following single operator on both qubits:
 		- <img width="1182" height="262" alt="image" src="https://github.com/user-attachments/assets/5b164a5b-1aab-4e27-a674-95dcf06e0849" />
+		
 		- To calculate $H^{\otimes2}$ |00>, we can do it through 3 ways:
 			- Direct matrix-vector multiplication
 			- Calculate the quantum state of each state then find the quantum state of the composite system (H|0> $\otimes$ H|0>)
 			- Make calculations with |0> and |1>
 	- **CNOT Operator**:
 		- <img width="1230" height="916" alt="image" src="https://github.com/user-attachments/assets/8a83943d-464b-4243-8388-22a0e49c1664" />
+		
 	- **cx-gate**:
 		- CNOT operator is represented as cx-gate in Qiskit (qc.cx(1,0))
 		- It takes two arguments: controller-qubit and target-qubit.
@@ -254,10 +270,12 @@
 		- CNOT affects when the **up qubit** has the value 1.
 		- Let's rewrite the composite state as below to explicitly represent the effect of CNOT:
 			- <img width="1200" height="522" alt="image" src="https://github.com/user-attachments/assets/bf7673f4-4890-426a-b0d7-e8a5ed7ca210" />
+			
 			- **X-gate (CNOT) swaps the coefficients of |0> and |1>, not just the signs!** Common misconception is that the negative sign for |1> state is swapped to positive after CNOT, but in actual fact it is the entire coefficient of |0> that is now swapped to |1>.
 		- Before CNOT operator, the sign of |1> in the up qubit is positive (+ $\frac{1}{\sqrt2}$ ). After CNOT operator, its sign changes to negative (- $\frac{1}{\sqrt2}$ ). This is called **phase kickback**.
 	- After CNOT:
 		- The quantum states of the qubits are separable (no correlation): <img width="666" height="148" alt="image" src="https://github.com/user-attachments/assets/5bed6957-7087-40eb-be07-3a9b5ca77299" />
+		
 		- If we apply Hadamard to each qubit, both qubits evolve to state |1>. Thus, **the final state is |11>**.
 	  
 - **Entanglement and Superdense Coding**:
@@ -284,6 +302,7 @@
 		- After having the entanglement, B takes his qubit and goes away.
 		- A will send 2 classical bits of information by only sending her qubit.
 		- <img width="1250" height="672" alt="image" src="https://github.com/user-attachments/assets/03f24b4b-f8b3-4764-8d2d-bb2d3ff48480" />
+		
 		- Now we describe:
 			- A has 2 bits of classical information: a,b ∈ {0,1}
 			- There are 4 possible values for this pair (a,b): (0,0), (0,1), (1,0) or (1,1)
@@ -345,6 +364,7 @@
 			- $\ket{\psi}$ = $\ket{v}$ $_{A_1}$ ⊗ $\ket{\psi^+}$ $_{A_2B}$ = $\frac{1}{\sqrt2}$ [a $\ket{000}$ + a $\ket{011}$ + b $\ket{100}$ + b $\ket{111}$ ]
 			- Group by A's 2 qubits ( $A_1$ $A_2$ ), keeping B's qubit as a "tag" (see below for explanation): $\ket{\psi}$ = $\frac{1}{\sqrt2}$ [ $\ket{00}$ (a $\ket{0}$ ) + $\ket{01}$ (a $\ket{1}$ ) + $\ket{10}$ (b $\ket{0}$ ) + $\ket{11}$ (b $\ket{1}$ )]
 			- <img width="454" height="450" alt="image" src="https://github.com/user-attachments/assets/513a1775-8e7e-45b2-ad86-0a6f052833a8" />
+			
 		- Re-express A's 2 qubits in the Bell basis
 			- **Using the identities:**
 				- $\ket{00}$ = $\frac{1}{\sqrt2}$ ( $\ket{\Phi^+}$ + $\ket{\Phi^-}$ ) = I
@@ -355,6 +375,7 @@
 		- A measures her 2 qubits in the Bell basis
 			- Each of the 4 outcomes occurs with probability $\frac{1}{4}$ and collapses B's qubit to one of:
 				- <img width="992" height="476" alt="image" src="https://github.com/user-attachments/assets/e4fd2ad0-42fd-46b9-a674-757e892a33c9" />
+				
 					- A's outcomes are the **4 Bell states**:
 						- $\ket{\Phi^+}$ = $\frac{1}{\sqrt2}$ ( $\ket{00}$ + $\ket{11}$ )
 						- $\ket{\Phi^-}$ = $\frac{1}{\sqrt2}$ ( $\ket{00}$ - $\ket{11}$ )
@@ -372,6 +393,7 @@
 	- Protocol:
 		- The protocol uses 3 qubits as specified below:
 			- <img width="372" height="212" alt="image" src="https://github.com/user-attachments/assets/fb368713-a260-4b8d-b5f1-1db7b8825f15" />
+			
 			- A has 2 qubits, B has 1 qubit
 			- A's quantum message (key) is $\ket{v}$ = $\begin{pmatrix} {a} \ & {b} \end{pmatrix}$ = a $\ket{0}$ + b $\ket{1}$
 			- The entanglement between A's second qubit and B's qubit is $\frac{1}{\sqrt2}$ $\ket{00}$ + $\frac{1}{\sqrt2}$ $\ket{11}$
@@ -391,10 +413,12 @@
 - **Multiple Control Constructions**:
 	- How can we obtain the following operator, in which the NOT operator is applied to the target qubit if the control qubit is in **state $\ket{0}$ instead?**
 		- <img width="502" height="226" alt="image" src="https://github.com/user-attachments/assets/67c9a035-68cc-475b-8daa-47a3a8afae1c" />
+		
 	- To do so, we can **apply a NOT operator** to the control qubit, then **apply CNOT operator** so that the NOT operator is applied to the target qubit when the control qubit has been in state $\ket{0}$ . To recover the previous value of the control qubit, we **apply the NOT operator once more** after the CNOT operator.
 	- CCNOT:
 		- Now we introduce **CCNOT gate**: controlled-controlled-not operator (Toffoli gate), which is controlled by 2 qubits (i.e 2 control qubits, 1 target qubit)
 		- <img width="1180" height="524" alt="image" src="https://github.com/user-attachments/assets/3fefcde2-a798-42ec-a480-d7185772b2c0" />
+		
 - **Inversion about the Mean**:
 	- We play a game to understand how Grover's search algorithm works:
 		- We have a list of N elements. Some of them are marked. At the beginning, each has a value of 1. Each iteration of the game has 2 phases:
@@ -509,6 +533,7 @@
 		- Grover's algorithm is able to perform the same task only with O( $\sqrt{N}$ ) queries.
 	- Example:
 		- Grover's algorithm is not restricted to a list. It can be applied to any **search space** as long as a function $f$ can be constructed. <img width="646" height="434" alt="image" src="https://github.com/user-attachments/assets/dea9f135-43be-48f0-a247-f52b6dad3c38" />
+		
 		- Consider the Travelling Salesman Problem above. In this example, the search space consists of all possible routes such as ABDCA, ACBDA, ABCDA etc., and our aim is to find the route whose total distance is <900.
 			- ABCDA fulfills this condition. If you want to design $f$ for this problem, $f(ABCDA)$ = 1 and $f(x)$ = 0 for all other routes.
 			- Checking all routes one by one is a long procedure. But given a route, you can easily check if the total distance satisfies the condition. Instead of checking all routes one by one and querying $f$ for each route, it is enough to make square root queries if you use Grover's Search.
